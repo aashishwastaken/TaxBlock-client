@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import PersonAdd from '@material-ui/icons/PersonAdd';
 import {login} from '../utils/authSlice';
+import baseUrl from '../utils/baseUrl';
 
 export default function Register() {
     const dispatch=useDispatch();
@@ -20,7 +21,7 @@ export default function Register() {
       e.preventDefault();
         let userInput={name,email,address, contact, password,cpassword};
         try{
-        let {data:res}=await axios.post("http://localhost:8081/users/register",userInput);
+        let {data:res}=await axios.post(baseUrl+"users/register",userInput);
         // console.log(res);
         if(res.success){
           dispatch(login({user:{name:res.user.name,

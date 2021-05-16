@@ -7,8 +7,9 @@ import LoanCalc from './LoanCalc';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { Add } from '@material-ui/icons';
+import baseUrl from '../utils/baseUrl';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         '& > *': {
             margin: '1em',
@@ -31,7 +32,7 @@ export default function LoanForm({ token }) {
     let [exp, setExp] = useState(new Date().setFullYear(new Date().getFullYear() + 1));
     let [emi, setEmi] = useState(null);
     let [fixed, setFixed] = useState('');
-    let [rate, setRate] = useState(5);
+    let [rate] = useState(5);
     let [errors, setErrors] = useState(null);
 
 
@@ -43,7 +44,7 @@ export default function LoanForm({ token }) {
         e.preventDefault();
         let userInput = { amount, strt: new Date(strt), exp: new Date(exp), emi, fixed };
         try {
-            let { data: res } = await axios.post("http://localhost:8081/loans/new", userInput, { headers: { Authorization: `Bearer ${token}` } });
+            let { data: res } = await axios.post(baseUrl+"loans/new", userInput, { headers: { Authorization: `Bearer ${token}` } });
             // console.log(res);
             if (res.success) {
                 setAmount('');

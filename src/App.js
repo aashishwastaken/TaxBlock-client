@@ -10,6 +10,7 @@ import Register from './components/Register';
 import {useDispatch} from 'react-redux';
 import {login} from './utils/authSlice';
 import NewLoan from './components/NewLoan';
+import baseUrl from './utils/baseUrl';
 
 
 
@@ -30,7 +31,7 @@ function App() {
       let token = localStorage.getItem('token');
       let user = localStorage.getItem('user');
       if (token) {
-        let res = await axios.post('http://localhost:8081/users/isTokenValid', null, { headers: { 'Authorization': `Bearer ${token}` } });
+        let res = await axios.post(baseUrl+'users/isTokenValid', null, { headers: { 'Authorization': `Bearer ${token}` } });
         user = JSON.parse(user);
 
         if (res.data.success) {

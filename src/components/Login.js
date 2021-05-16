@@ -5,6 +5,7 @@ import Group from '@material-ui/icons/Group';
 import { useDispatch } from 'react-redux';
 
 import { login } from '../utils/authSlice';
+import baseUrl from '../utils/baseUrl';
 
 
 
@@ -21,7 +22,7 @@ export default function Login() {
     e.preventDefault();
     let userInput = { email, password };
     try {
-      let { data: res } = await axios.post("http://localhost:8081/users/login", userInput);
+      let { data: res } = await axios.post(baseUrl+"users/login", userInput);
       // console.log(res);
       if (res.success) {
         dispatch(login({

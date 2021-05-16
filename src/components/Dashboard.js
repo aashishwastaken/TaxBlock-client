@@ -6,6 +6,7 @@ import PageNotFound from './PageNotFound';
 
 import Card from './Card';
 import axios from 'axios';
+import baseUrl from '../utils/baseUrl';
 
 
 export default function Dashboard() {
@@ -17,7 +18,7 @@ export default function Dashboard() {
     useEffect(() => {
 
         async function getData() {
-            let loansData = await axios.get('http://localhost:8081/loans/all', { headers: { Authorization: `Bearer ${token}` } });
+            let loansData = await axios.get(baseUrl+'loans/all', { headers: { Authorization: `Bearer ${token}` } });
              //console.log(loansData.data.loans);
             loansData = loansData.data.loans;
             loansData.map((x, i) => {

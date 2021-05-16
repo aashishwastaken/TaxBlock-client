@@ -34,10 +34,10 @@ export default function LoanCalc({ amount, strt, exp, setEmi, rate }) {
         return months <= 0 ? 0 : months;
     }
     let emi = 0, time = 0, interest = 0, total = 0;
-
-    if (Number(amount) > 0) {
+    amount=Number(amount);
+    if (amount > 0) {
         time = monthDiff(new Date(strt), new Date(exp));
-        rate = rate / 1200;
+        rate = Number(rate) / 1200;
         let a = (Math.pow((1 + rate), time) - 1);
         let b = (rate * Math.pow((1 + rate), time));
         emi = amount * (b / a);
