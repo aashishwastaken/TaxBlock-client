@@ -78,6 +78,7 @@ export default function LoanForm({ token }) {
                         <TextField
                             id="amount"
                             value={amount}
+                            type="number"
                             onChange={(e) => setAmount(e.target.value)}
                             label="Amount"
                             color="primary"
