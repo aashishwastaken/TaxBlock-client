@@ -28,7 +28,7 @@ export default function LoanForm({ token }) {
 
     let history = useHistory();
     let [amount, setAmount] = useState('');
-    let [strt, setStrt] = useState(new Date());
+    let [strt, setStrt] = useState(new Date().setDate(new Date().getDate() + 1));
     let [exp, setExp] = useState(new Date().setFullYear(new Date().getFullYear() + 1));
     let [emi, setEmi] = useState(null);
     let [fixed, setFixed] = useState('');
