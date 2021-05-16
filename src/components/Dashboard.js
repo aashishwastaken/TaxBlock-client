@@ -48,7 +48,7 @@ export default function Dashboard() {
                 field: 'emi',
                 headerName: 'EMI',
                 type: 'number',
-                width: 100
+                width: 250
             },
             {
                 field: 'fixed',
