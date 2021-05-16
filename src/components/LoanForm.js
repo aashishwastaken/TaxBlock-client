@@ -61,6 +61,9 @@ export default function LoanForm({ token }) {
             setErrors(err.response.data.msg);
         }
     }
+    let curYear=new Date().getFullYear();
+    let curMonth=(new Date().getMonth()+1<10)?'0'+''+(new Date().getMonth()+1):new Date().getMonth()+1;
+    let curDate=(new Date().getDate()<10)?'0'+''+new Date().getDate():new Date().getDate();
 
     return (
         <div className="row" style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -86,7 +89,7 @@ export default function LoanForm({ token }) {
                         <TextField
 
                             type="date"
-                            defaultValue={new Date().getFullYear() + '-01-01'}
+                            defaultValue={`${curYear}-${curMonth}-${curDate}`}
                             id="strt date"
                             label="Starting Date"
                             onChange={(e) => setStrt(e.target.value)}
@@ -97,7 +100,7 @@ export default function LoanForm({ token }) {
 
                         <TextField
                             type="date"
-                            defaultValue={(new Date().getFullYear() + 1) + '-01-01'}
+                            defaultValue={`${curYear+1}-${curMonth}-${curDate}`}
                             id="exp date"
                             label="Expiry Date"
                             onChange={(e) => setExp(e.target.value)}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 // import CardActions from '@material-ui/core/CardActions';
@@ -8,10 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import Chart from "react-google-charts";
 const useStyles = makeStyles({
     root: {
-        width:'90vw',
+        width: '90vw',
         margin: '1em',
         border: '2px solid #3F51B5',
-        overflowX:'scroll'
+        overflowX: 'scroll'
     },
 
     title: {
@@ -24,7 +24,10 @@ const useStyles = makeStyles({
 
 export default function LoanCalc({ amount, strt, exp, setEmi, rate }) {
     const classes = useStyles();
-    //   const bull = <span className={classes.bullet}>•</span>;
+    
+    useEffect(() => {
+        setEmi(emi);
+    });
 
     function monthDiff(d1, d2) {
         var months;
@@ -33,19 +36,21 @@ export default function LoanCalc({ amount, strt, exp, setEmi, rate }) {
         months += d2.getMonth();
         return months <= 0 ? 0 : months;
     }
+
     let emi = 0, time = 0, interest = 0, total = 0;
-    amount=Number(amount);
+    amount = Number(amount);
+    
     if (amount > 0) {
         time = monthDiff(new Date(strt), new Date(exp));
         rate = Number(rate) / 1200;
         let a = (Math.pow((1 + rate), time) - 1);
         let b = (rate * Math.pow((1 + rate), time));
         emi = amount * (b / a);
-        setEmi(emi);
+
 
         interest = emi * time - amount;
         total = amount + interest;
-       // console.log({ time, rate, emi, interest, strt, exp, a, b });
+        // console.log({ time, rate, emi, interest, strt, exp, a, b });
     }
 
 
@@ -71,9 +76,9 @@ export default function LoanCalc({ amount, strt, exp, setEmi, rate }) {
                     loader={<div>Loading Chart...</div>}
                     data={[
                         ['Fund Type', 'Amount'],
-                        ['Amount',(amount/total)*100],
-                        ['Interest', (interest/total)*100],
-                        
+                        ['Amount', (amount / total) * 100],
+                        ['Interest', (interest / total) * 100],
+
                     ]}
                     options={{
                         title: 'Loan Breakup',
