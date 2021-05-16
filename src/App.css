@@ -1,38 +1,220 @@
-.App {
+p, label{
+  padding: 5px;
+}
+body{
+  width:100vw;
+  height:100vh;
+}
+nav{
+  background-color:#0F82F4;
+  color:#9ffff7;
+  width: 100%;
+  height:10vh;
+  position: sticky;
+  top:0;
+  display: inline-block;
+
+}
+.stroke{
+  -webkit-text-stroke:1px black;
+}
+
+
+.row{
+display:flex;
+flex-flow: row nowrap;
+/* justify-content: center; */
+align-items: center;
+
+}
+.col{
+  display:flex;
+  flex-flow: column nowrap;
+  /* justify-content: center; */
+  align-items: center;
+  }
+
+nav p{
+  font-size: 2em;
+  font-weight: 700;
+}
+.side-image{
+  background-image:url("https://besthqwallpapers.com/Uploads/7-5-2020/132340/thumb2-3d-blue-padlock-computer-security-encryption-3d-lock-security-blue-background.jpg");
+  width:100vw;
+  height:90.99vh;
+  background-repeat: repeat;
+  background-size:contain;
+
+}
+
+#auth{
+  width:50%;
+  margin-left:auto;
+  background-color: white;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.danger:empty{
+  display: none;
+}
+.danger{
+  background-color: #F50057;
+  font-weight: 600;
+  display: block;
+  border: 2px solid grey;
+  color:white;
+}
+
+form {
+  border: 3px solid #f1f1f1;
+  width: 90%;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0.2em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.button-login {
+  background-color: #0F82F4;
+  color: white;
+  padding: 14px 20px;
+  margin: 0.2em;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button-login:hover {
+  opacity: 0.8;
+}
+#or{
+  font-weight: bolder;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#reserve-button {
+  width: 95%;
+  background-color: #FF507D;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.imgcontainer {
+  text-align: center;
+  margin: auto;
+}
+
+img.avatar {
+  width: 10%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.button2 {
+  background-color: #04a1fc; 
+  color: black; 
+  border: 2px solid black;
+}
+
+.button2:hover {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+.btn {
+  background-color: #00e8d4; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin:5px;
+  display:flex;
+flex-flow: row nowrap;
+justify-content: center;
+align-items: center;
+
+}
+
+
+.page-not-found{
+  background: rgb(228,255,0);
+  background: linear-gradient(348deg, rgba(228,255,0,1) 0%, rgba(45,242,253,1) 100%);
+  width: 100vw;
+  height: 90vh;
+
+}
+
+/* .dashboard{
+  background: rgb(23,0,154);
+  background: linear-gradient(345deg, rgba(23,0,154,1) 0%, rgba(253,45,249,1) 100%);
+} */
+
+#police, #home-pic{
+  width: 20%;
+  height: 20%;
+  margin:1em;
+}
+#home-pic{
+  cursor: pointer;
+}
+
+#home-pic:hover{
+  width: 25%;
+  height: 25%;
+}
+
+#warning-401{
+  font-size: 3em;
+  font-weight: 800;
+}
+
+#police-says{
+  font-size: 2em;
+  font-weight: 500;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 700px) {
+  span.psw {
+     display: block;
+     float: none;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .cancelbtn {
+     width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  #auth{
+    margin:0 !important;
+    width: 100%;
+  }
+  #warning-401{
+    font-size: 2em;
+   
+  }
+  
+  #police-says{
+    font-size: 1.5em;
+  }
+
+  .row{
+    flex-direction: column;
   }
 }
