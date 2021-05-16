@@ -1,9 +1,9 @@
 import React from "react";
-import { screen, render, fireEvent, waitForElement } from "@testing-library/react";
+import { screen, render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import LoanForm from "./components/LoanForm";
 
-let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYTEyY2NjZmVkMzJkMzVlMGNkN2M2NyIsIm5hbWUiOiJFbGl6YWJldGggU3dhbiIsImVtYWlsIjoicUBrIiwiaWF0IjoxNjIxMTkyMDk3LCJleHAiOjE2MjExOTU2OTd9.GL2EPAKiDqeVmT-ZiPoMK1_ovI1dc5eX_teSCr4pKlo';
+let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYTEyY2NjZmVkMzJkMzVlMGNkN2M2NyIsIm5hbWUiOiJFbGl6YWJldGggU3dhbiIsImVtYWlsIjoicUBrIiwiaWF0IjoxNjIxMjAzNjk5LCJleHAiOjE2MjEyMDcyOTl9.AY5RUFaSx2uu1NWYBuXgierWBgnBaal5ZzCg5uYY9dY';
 
 describe("LoanForm ", () => {
   it("should render the basic fields", () => {
