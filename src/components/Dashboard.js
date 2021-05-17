@@ -48,7 +48,7 @@ export default function Dashboard() {
                 field: 'emi',
                 headerName: 'EMI',
                 type: 'number',
-                width: 250
+                width: 200
             },
             {
                 field: 'fixed',
@@ -75,12 +75,12 @@ export default function Dashboard() {
                 <div style={{ height: window.innerHeight / 2, width: '90%', margin: '1em', border: '2px solid #3F51B5', }}>
                     <DataGrid columns={columns} rows={loans}
 
-                        sortModel={[
-                            {
-                                field: 'issuedOn',
-                                sort: 'desc',
-                            },
-                        ]}
+                        // sortModel={[
+                        //     {
+                        //         field: 'issuedOn',
+                        //         sort: 'desc',
+                        //     },
+                        // ]}
                     />
                 </div>
 
